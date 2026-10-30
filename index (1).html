@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marty McFly - Currículo</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div class="curriculo">
+
+      <header class="topo">
+        <div class="logo">{{ iniciais }}</div>
+        <div>
+          <h1>{{ nome }}</h1>
+          <p class="cargo">{{ cargo }}</p>
+        </div>
+      </header>
+
+      <div class="corpo">
+
+        <main class="principal">
+          <p class="resumo">{{ resumo }}</p>
+
+          <h2 class="secao">Experiências Profissionais</h2>
+          <article v-for="exp in experiencias" :key="exp.titulo" class="item">
+            <h3>{{ exp.titulo }}</h3>
+            <p class="sub">{{ exp.funcao }}</p>
+            <p>{{ exp.descricao }}</p>
+          </article>
+        </main>
+
+        
+        <aside class="lateral">
+          <h2 class="secao">Educação</h2>
+          <article v-for="edu in educacao" :key="edu.titulo" class="item">
+            <h3>{{ edu.titulo }}</h3>
+            <p class="sub">{{ edu.tipo }}</p>
+            <p>{{ edu.descricao }}</p>
+          </article>
+
+          <hr />
+
+          <h2 class="secao">Contato</h2>
+          <p v-for="c in contato" :key="c.label" class="contato">
+            <strong>{{ c.label }}:</strong> {{ c.valor }}
+          </p>
+        </aside>
+      </div>
+
+      <footer class="rodape">Copyright 2026 - Todos os direitos reservados</footer>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
